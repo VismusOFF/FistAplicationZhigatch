@@ -10,18 +10,32 @@
 
     <Grid>
         <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" VerticalAlignment="Top" Height="330" Width="800" />
-        <Button Content="Добавить" 
+        <DockPanel VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center">
+            
+            <TextBox x:Name="SearchTextBox"
+                     Width="100"
+                     Height="50"
+                     Margin="10"
+                     TextChanged="SearchTextBox_TextChanged"/>
+            
+            
+            <Button Content="Добавить" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Bottom" 
-                Width="75" 
-                Margin="10,0,0,71"
+                Width="100" 
                 Background="#FFCBAAFF" Foreground="White" FontFamily="Arial Black"
-                Click="AddButton_Click" Height="37"/>
-        <Button Content="Удалить" 
+                Click="AddButton_Click" Height="50"
+                    Margin="10"/>
+
+            <Button Content="Удалить" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Bottom" 
-                Width="75" Margin="90,0,0,71"
+                Width="100"
                 Background="#FFCBAAFF" Foreground="White" FontFamily="Arial Black"
-                Click="DeleteButton_Click" Height="37"/>
+                Click="DeleteButton_Click" Height="50"
+                    Margin="10"/>
+
+        </DockPanel>
     </Grid>
 </Page>

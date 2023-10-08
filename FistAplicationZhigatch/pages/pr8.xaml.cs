@@ -159,5 +159,24 @@ namespace FistAplicationZhigatch.pages
                 MessageBox.Show("Выберите строку для удаления.");
             }
         }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string filterText = SearchTextBox.Text.ToLower();
+
+            // Фильтруем список элементов
+            List<Item> filteredItems = _items.Where(item =>
+                item.CompanyName.ToLower().Contains(filterText) ||
+                item.ProductName.ToLower().Contains(filterText) ||
+                item.UnitOfMeasurement.ToLower().Contains(filterText) ||
+                item.PurchasePrice.ToString().Contains(filterText) ||
+                item.DeliveryDate.ToString().Contains(filterText) ||
+                item.Volume.ToString().Contains(filterText) ||
+                item.Cost.ToString().Contains(filterText)
+            ).ToList();
+
+            // Обновляем отображение данных
+            dataGrid.ItemsSource = filteredItems;
+        }
     }
 }
